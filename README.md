@@ -1,27 +1,54 @@
-TravelCo
+Project Portfolio
+
+This repository contains two frontend React applications:
+
+TravelCo — A travel booking and tour showcase platform
+CineScope — A movie discovery and tracking app powered by TMDB
+✈️ TravelCo
+
 React-based travel website for showcasing tour packages and handling bookings.
 
-Stack: 
+Tech Stack
 React + Vite
 React Router
 Tailwind CSS
 Framer Motion
-
-
-Setup:
-bash
+Features
+Homepage
+Hero video section
+Featured tours
+Animated sections
+Destinations
+Tour grid layout
+Advanced filtering system
+Tour Details
+Individual tour pages
+Booking widget
+Tour information and pricing
+Blog
+Article listing
+Categories
+Contact
+Contact form
+FAQ section
+Embedded map
+Routes
+Route	Description
+/	Homepage with hero video and featured tours
+/destinations	Tour grid with filters
+/tours/:id	Single tour page with booking widget
+/about	Team and company story
+/blog	Articles and categories
+/contact	Contact form, map, FAQ
+Project Setup
 git clone https://github.com/your-org/travelco.git
 cd travelco
 npm install
 npm run dev
+Build for Production
+npm run build
 
-Pages
-/ — Homepage with hero video and featured tours
-/destinations — Tour grid with filters
-/tours/:id — Single tour with booking widget
-/about — Team and story
-/blog — Articles and categories
-/contact — Form, map, FAQ
+Deploy the generated /dist folder to any static hosting provider.
 
 Folder Structure
 src/
@@ -34,76 +61,98 @@ src/
 │       ├── Carousel.jsx
 │       └── Navbar.jsx
 └── pages/
+Filtering System
 
-Filtering:
-Users can filter tours by continent, price, duration, and activity type. Handled in FilterSidebar.jsx.
+Handled in FilterSidebar.jsx.
 
-Booking Widget:
-Date picker (check-in / check-out)
-Guest counter (adults + children)
-Design Tokens
+Users can filter tours by:
+
+Continent
+Price
+Duration
+Activity type
+Booking Widget
+
+Features include:
+
+Check-in / check-out date picker
+Guest counter
+Adults
+Children
+Design System
 Token	Value
 Primary	Deep navy
 Accent	Terracotta
 Neutral	Soft sand
-Heading font	Cormorant Garamond
-Body font	Inter / Poppins
+Heading Font	Cormorant Garamond
+Body Font	Inter / Poppins
 Accessibility
-WCAG 2.1 AA
-Contrast ratio > 4.5:1
-Min touch target 44×44px
-Mobile-first (320px+)
+WCAG 2.1 AA compliant
+Contrast ratio greater than 4.5:1
+Minimum touch target size: 44×44px
+Mobile-first responsive design (320px+)
+Development Timeline
+Week	Task
+1	Repository setup, routing, Tailwind configuration
+2–3	Component library and homepage
+4	Destinations page and filtering
+5	Tour detail page and booking widget
+6	Animations, polish, mobile optimization
+🎬 CineScope
 
-Build & Deploy:
-bash
-npm run build
-# Deploy /dist to any static host
-Timeline
+Frontend-only movie discovery application powered by the TMDB API.
 
-Week	Task:
-1	Repo setup, routing, Tailwind config
-2–3	Component library, homepage
-4	Destinations + filters
-5	Tour detail + booking
-6	Animations, polish, mobile
-
-CineScope
-Frontend-only movie discovery app. Data from TMDB API. User data in localStorage. No backend.
-
-Stack:
+Tech Stack
 React + Vite
 React Router v6
 Axios
 Recharts
 Tailwind CSS
-
-Setup:
-bash
-git clone https://github.com/your-org/cinescope.git
-cd cinescope
-npm install
-Create a .env file:
-
-
-VITE_TMDB_API_KEY=your_key_here
-Get a free key at themoviedb.org/settings/api
-
-
-bash
-npm run dev
+Features
+Browse popular and trending movies
+Search movies
+Watchlist functionality
+Personal ratings
+Custom movie lists
+Movie statistics dashboard
+Demo admin dashboard
+LocalStorage persistence
 Routes
-Path	Page
+Route	Description
 /	Home
-/movies	Browse with filters
+/movies	Browse movies with filters
 /movie/:id	Movie details
 /search?q=	Search results
 /watchlist	Saved movies
-/ratings	Your ratings
-/lists	Custom lists
-/stats	Your stats
-/admin	Dashboard (demo)
+/ratings	User ratings
+/lists	Custom movie lists
+/stats	Personal statistics
+/admin	Demo dashboard
+Project Setup
+git clone https://github.com/your-org/cinescope.git
+cd cinescope
+npm install
 
-Folder Structure:
+Create a .env file:
+
+VITE_TMDB_API_KEY=your_key_here
+
+Get a free API key from TMDB:
+
+https://www.themoviedb.org/settings/api
+
+Run the development server:
+
+npm run dev
+Build for Production
+npm run build
+
+Deploy the generated /dist folder to:
+
+Vercel
+Netlify
+Any static hosting provider
+Folder Structure
 src/
 ├── api/tmdb.js
 ├── components/
@@ -118,22 +167,7 @@ src/
     ├── storage.js
     ├── helpers.js
     └── constants.js
-localStorage Shape
-
-json
-{
-  "watchlist": [],
-  "ratings": [],
-  "customLists": [],
-  "notes": [],
-  "preferences": {}
-}
-Admin Dashboard
-Route: /admin
-Access: click logo 5 times
-Password: admin123 (hardcoded, demo only)
-
-API Endpoints Used:
+TMDB API Endpoints Used
 GET /movie/popular
 GET /movie/top_rated
 GET /movie/now_playing
@@ -145,14 +179,34 @@ GET /movie/{id}/similar
 GET /search/movie
 GET /genre/movie/list
 GET /discover/movie
-
-Deploy:
-bash
-npm run build
-# Upload /dist to Vercel or Netlify
-
-Notes:
-Never commit .env
+LocalStorage Structure
+{
+  "watchlist": [],
+  "ratings": [],
+  "customLists": [],
+  "notes": [],
+  "preferences": {}
+}
+Admin Dashboard
+Feature	Details
+Route	/admin
+Access	Click logo 5 times
+Password	admin123
+Purpose	Demo only
+Important Notes
+Never commit .env files
 Always use fallback images for missing posters
-localStorage limit ~5MB — don't store image blobs
-Attribution to TMDB required by their API terms
+localStorage limit is approximately 5MB
+Do not store image blobs in localStorage
+TMDB attribution is required by their API terms
+Deployment
+
+Both projects are frontend-only applications and can be deployed easily to:
+
+Vercel
+Netlify
+GitHub Pages
+Any static hosting provider
+License
+
+This project is for educational and portfolio purposes.
