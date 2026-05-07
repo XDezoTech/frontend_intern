@@ -1,6 +1,6 @@
 import { Outlet, useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from '../components/Navbar';
+import Navbar from './ui/Navbar';
 import { Mandala, PrayerFlags } from '../components/UI';
 
 function Footer() {

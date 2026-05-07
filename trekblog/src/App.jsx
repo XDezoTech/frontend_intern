@@ -6,6 +6,8 @@ import Trek from './pages/Trek';
 import About from './pages/About';
 import { BlogIndex, BlogPost } from './pages/Blog';
 import Contact from './pages/Contact';
+import ComponentDemo from "./pages/ComponentDemo";
+
 import { Mandala } from './components/UI';
 
 function NotFound() {
@@ -41,6 +43,7 @@ export default function App() {
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="demo" element={<ComponentDemo />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

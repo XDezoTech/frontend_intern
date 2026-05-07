@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { Accordion } from '../components/UI';
 
+import Button from "../components/ui/Button";
+
 const faqs = [
   { q: 'Do I need previous trekking experience?', a: 'For easier treks like Mardi Himal or Langtang, no. For EBC or Annapurna Circuit, you should be comfortable walking 6–8 hours carrying a daypack. We offer a fitness assessment call before booking if you are unsure.' },
   { q: 'What is included in the trek price?', a: 'All National Park and TIMS permits, Sherpa guide, porters (1 per 2 guests), teahouse accommodation, and breakfast and dinner every day on trail. International flights, travel insurance, personal snacks, and alcoholic drinks are not included.' },
@@ -49,25 +51,57 @@ function ContactForm() {
   const ErrMsg = ({ msg }) => <p className="text-xs text-red-500 mt-1">{msg}</p>;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="card-parchment p-6 space-y-4" noValidate>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="card-parchment p-6 space-y-4"
+      noValidate
+    >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5">Full Name *</label>
-          <input id="name" type="text" placeholder="Hari Bahadur" className={fieldClass(errors.name)}
-            {...register('name', { required: 'Name is required' })} />
+          <label
+            htmlFor="name"
+            className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5"
+          >
+            Full Name *
+          </label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Hari Bahadur"
+            className={fieldClass(errors.name)}
+            {...register("name", { required: "Name is required" })}
+          />
           {errors.name && <ErrMsg msg={errors.name.message} />}
         </div>
         <div>
-          <label htmlFor="email" className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5">Email *</label>
-          <input id="email" type="email" placeholder="hari@example.com" className={fieldClass(errors.email)}
-            {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+\.\S+$/, message: 'Invalid email' } })} />
+          <label
+            htmlFor="email"
+            className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5"
+          >
+            Email *
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="hari@example.com"
+            className={fieldClass(errors.email)}
+            {...register("email", {
+              required: "Email is required",
+              pattern: { value: /^\S+@\S+\.\S+$/, message: "Invalid email" },
+            })}
+          />
           {errors.email && <ErrMsg msg={errors.email.message} />}
         </div>
       </div>
 
       <div>
-        <label htmlFor="trek" className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5">Trek of Interest</label>
-        <select id="trek" className={fieldClass(false)} {...register('trek')}>
+        <label
+          htmlFor="trek"
+          className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5"
+        >
+          Trek of Interest
+        </label>
+        <select id="trek" className={fieldClass(false)} {...register("trek")}>
           <option value="">Select a trek (optional)</option>
           <option>Everest Base Camp</option>
           <option>Annapurna Circuit</option>
@@ -81,14 +115,49 @@ function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="group" className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5">Group Size</label>
-          <input id="group" type="number" min="1" max="20" placeholder="2" className={fieldClass(false)} {...register('group')} />
+          <label
+            htmlFor="group"
+            className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5"
+          >
+            Group Size
+          </label>
+          <input
+            id="group"
+            type="number"
+            min="1"
+            max="20"
+            placeholder="2"
+            className={fieldClass(false)}
+            {...register("group")}
+          />
         </div>
         <div>
-          <label htmlFor="month" className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5">Preferred Month</label>
-          <select id="month" className={fieldClass(false)} {...register('month')}>
+          <label
+            htmlFor="month"
+            className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5"
+          >
+            Preferred Month
+          </label>
+          <select
+            id="month"
+            className={fieldClass(false)}
+            {...register("month")}
+          >
             <option value="">Any / Flexible</option>
-            {['January','February','March','April','May','June','July','August','September','October','November','December'].map(m => (
+            {[
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ].map((m) => (
               <option key={m}>{m}</option>
             ))}
           </select>
@@ -96,17 +165,31 @@ function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5">Message *</label>
+        <label
+          htmlFor="message"
+          className="block text-xs text-bark/60 uppercase tracking-wider font-medium mb-1.5"
+        >
+          Message *
+        </label>
         <textarea
-          id="message" rows={4} placeholder="Tell us about your trekking experience, any health considerations, or questions you have…"
+          id="message"
+          rows={4}
+          placeholder="Tell us about your trekking experience, any health considerations, or questions you have…"
           className={`${fieldClass(errors.message)} resize-none`}
-          {...register('message', { required: 'Please write a message', minLength: { value: 15, message: 'At least 15 characters' } })}
+          {...register("message", {
+            required: "Please write a message",
+            minLength: { value: 15, message: "At least 15 characters" },
+          })}
         />
         {errors.message && <ErrMsg msg={errors.message.message} />}
       </div>
 
       <label className="flex items-start gap-2 cursor-pointer">
-        <input type="checkbox" className="mt-0.5 accent-crimson" {...register('consent', { required: 'Required' })} />
+        <input
+          type="checkbox"
+          className="mt-0.5 accent-crimson"
+          {...register("consent", { required: "Required" })}
+        />
         <span className="text-xs text-bark/60 leading-relaxed">
           I agree to Himalaya Trails contacting me about my enquiry.
         </span>
@@ -118,7 +201,7 @@ function ContactForm() {
         disabled={isSubmitting}
         className="w-full bg-crimson text-white text-xs tracking-widest uppercase font-medium py-3.5 hover:bg-crimson-light transition-colors min-h-[44px] disabled:opacity-60"
       >
-        {isSubmitting ? 'Sending…' : 'Send Message'}
+        {isSubmitting ? "Sending…" : "Send Message"}
       </button>
     </form>
   );
